@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ButtonGroupManager : MonoBehaviour
 {
@@ -9,10 +10,8 @@ public class ButtonGroupManager : MonoBehaviour
 
     void Start()
     {
-        // Ensure the first button is selected by default
         ResetToFirst();
 
-        // Hook up all buttons
         foreach (var btn in buttons)
         {
             var handler = btn.gameObject.AddComponent<ButtonGroupHandler>();
@@ -22,17 +21,30 @@ public class ButtonGroupManager : MonoBehaviour
 
     void Update()
     {
+        var selected = EventSystem.current.currentSelectedGameObject;
+
         // If Unity clears selection, restore our current
-        if (EventSystem.current.currentSelectedGameObject == null && currentSelected != null)
+        if (selected == null && currentSelected != null)
+        {
+            EventSystem.current.SetSelectedGameObject(currentSelected);
+            return;
+        }
+
+        // If Unity selects something outside this group, force back
+        if (selected != null && !buttons.Any(b => b.gameObject == selected))
         {
             EventSystem.current.SetSelectedGameObject(currentSelected);
         }
     }
 
+    // Called by ButtonGroupHandler.OnSelect
+    public void NotifySelected(GameObject button)
+    {
+        currentSelected = button;
+    }
+
     public void SelectButton(GameObject button)
     {
-        if (currentSelected == button) return;
-
         EventSystem.current.SetSelectedGameObject(button);
         currentSelected = button;
     }
