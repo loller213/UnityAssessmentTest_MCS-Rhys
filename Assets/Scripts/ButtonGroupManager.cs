@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Linq;
 
 public class ButtonGroupManager : MonoBehaviour
 {
     [SerializeField] private Button[] buttons;
     private GameObject currentSelected;
+
+    public static bool DropdownActive { get; set; } // shared flag
 
     void Start()
     {
@@ -21,32 +22,32 @@ public class ButtonGroupManager : MonoBehaviour
 
     void Update()
     {
-        var selected = EventSystem.current.currentSelectedGameObject;
+        if (DropdownActive) return; // don’t override while dropdown is open
 
-        // If Unity clears selection, restore our current
-        if (selected == null && currentSelected != null)
+        var es = EventSystem.current;
+
+        // If nothing is selected, restore our button
+        if (es.currentSelectedGameObject == null && currentSelected != null)
         {
-            EventSystem.current.SetSelectedGameObject(currentSelected);
+            es.SetSelectedGameObject(currentSelected);
             return;
         }
 
-        // If Unity selects something outside this group, force back
-        if (selected != null && !buttons.Any(b => b.gameObject == selected))
+        // If something outside the group is selected, force back
+        if (es.currentSelectedGameObject != null &&
+            !IsManagedButton(es.currentSelectedGameObject) &&
+            currentSelected != null)
         {
-            EventSystem.current.SetSelectedGameObject(currentSelected);
+            es.SetSelectedGameObject(currentSelected);
         }
-    }
-
-    // Called by ButtonGroupHandler.OnSelect
-    public void NotifySelected(GameObject button)
-    {
-        currentSelected = button;
     }
 
     public void SelectButton(GameObject button)
     {
-        EventSystem.current.SetSelectedGameObject(button);
+        if (currentSelected == button) return;
+
         currentSelected = button;
+        EventSystem.current.SetSelectedGameObject(button);
     }
 
     public void ResetToFirst()
@@ -55,5 +56,23 @@ public class ButtonGroupManager : MonoBehaviour
         {
             SelectButton(buttons[0].gameObject);
         }
+    }
+
+    public void RestoreCurrent()
+    {
+        if (currentSelected != null)
+        {
+            EventSystem.current.SetSelectedGameObject(currentSelected);
+        }
+    }
+
+    private bool IsManagedButton(GameObject obj)
+    {
+        foreach (var btn in buttons)
+        {
+            if (btn.gameObject == obj)
+                return true;
+        }
+        return false;
     }
 }
