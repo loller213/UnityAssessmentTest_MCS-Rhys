@@ -5,6 +5,7 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private GameObject QuitPanel;
 
     [SerializeField] private GameObject[] Panels;
 
@@ -30,6 +31,11 @@ public class UI_Manager : MonoBehaviour
         MainMenu.SetActive(true);
         Settings.SetActive(false);
 
+        if (QuitPanel != null)
+        {
+            QuitPanel.SetActive(false);
+        }
+
         MainMenu.GetComponent<CanvasGroup>().alpha = 1;
         Settings.GetComponent<CanvasGroup>().alpha = 0;
     }
@@ -49,19 +55,13 @@ public class UI_Manager : MonoBehaviour
         StartCoroutine(SimpleTween.FadeTo(Settings.GetComponent<CanvasGroup>(), 1f, 0.5f));
         StartCoroutine(FadeOutAndDisable(MainMenu.GetComponent<CanvasGroup>(), 0.5f));
 
-        //// Wait a frame to let Animators initialize, then select first button
-        //if (manualButtonGroup != null)
-        //    StartCoroutine(ActivateAndSelectFirst(manualButtonGroup));
     }
 
-    //private IEnumerator ActivateAndSelectFirst(ManualButtonGroup group)
-    //{
-    //    // Wait until the first button is active and its animator is ready
-    //    while (!group.buttons[0].gameObject.activeInHierarchy || group.buttons[0].animator == null)
-    //        yield return null;
+    public void AccessQuitPanel(bool state)
+    {
+        QuitPanel.SetActive(state);
+    }
 
-    //    group.ResetToFirst();
-    //}
 
     public void OpenPanel(int ID)
     {
