@@ -42,11 +42,16 @@ public class ButtonGroupManager : MonoBehaviour
 
     public void SelectButton(GameObject button)
     {
-        if (currentSelected == button) return;
-
+        if (currentSelected == button) return; // already current
         currentSelected = button;
-        EventSystem.current.SetSelectedGameObject(button);
+
+        var es = EventSystem.current;
+        if (es != null && es.currentSelectedGameObject != button)
+        {
+            es.SetSelectedGameObject(button);
+        }
     }
+
 
     public void ResetToFirst()
     {
