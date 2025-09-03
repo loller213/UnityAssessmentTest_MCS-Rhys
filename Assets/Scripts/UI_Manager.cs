@@ -5,12 +5,28 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject Settings;
+
+    [SerializeField] private GameObject[] Panels;
+
+    [SerializeField] private ManualButtonGroup manualButtonGroup;
+
     //[SerializeField] private GameObject VideoPanel;
     //[SerializeField] private GameObject AudioPanel;
     //[SerializeField] private GameObject LanguagePanel;
 
+    public static UI_Manager Instance { get; set; }
+
     private void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         MainMenu.SetActive(true);
         Settings.SetActive(false);
 
@@ -32,7 +48,42 @@ public class UI_Manager : MonoBehaviour
 
         StartCoroutine(SimpleTween.FadeTo(Settings.GetComponent<CanvasGroup>(), 1f, 0.5f));
         StartCoroutine(FadeOutAndDisable(MainMenu.GetComponent<CanvasGroup>(), 0.5f));
+
+        //// Wait a frame to let Animators initialize, then select first button
+        //if (manualButtonGroup != null)
+        //    StartCoroutine(ActivateAndSelectFirst(manualButtonGroup));
     }
+
+    //private IEnumerator ActivateAndSelectFirst(ManualButtonGroup group)
+    //{
+    //    // Wait until the first button is active and its animator is ready
+    //    while (!group.buttons[0].gameObject.activeInHierarchy || group.buttons[0].animator == null)
+    //        yield return null;
+
+    //    group.ResetToFirst();
+    //}
+
+    public void OpenPanel(int ID)
+    {
+        for (int i = 0; i < Panels.Length; i++)
+        {
+            CanvasGroup cg = Panels[i].GetComponent<CanvasGroup>();
+            if (cg == null) continue;
+
+            if (i == ID)
+            {
+                // Enable and fade in the selected panel
+                Panels[i].SetActive(true);
+                StartCoroutine(SimpleTween.FadeTo(cg, 1f, 0.5f));
+            }
+            else
+            {
+                // Fade out and disable other panels
+                StartCoroutine(FadeOutAndDisable(cg, 0.5f));
+            }
+        }
+    }
+
 
     private IEnumerator FadeOutAndDisable(CanvasGroup cg, float duration)
     {
