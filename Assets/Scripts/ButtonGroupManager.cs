@@ -7,8 +7,6 @@ public class ButtonGroupManager : MonoBehaviour
     [SerializeField] private Button[] buttons;
     private GameObject currentSelected;
 
-    public static bool DropdownActive { get; set; } // shared flag
-
     void Start()
     {
         ResetToFirst();
@@ -22,18 +20,18 @@ public class ButtonGroupManager : MonoBehaviour
 
     void Update()
     {
-        if (DropdownActive) return; // don’t override while dropdown is open
-
         var es = EventSystem.current;
+        if (es == null) return;
 
-        // If nothing is selected, restore our button
+        // If nothing is selected, restore our managed button
         if (es.currentSelectedGameObject == null && currentSelected != null)
         {
             es.SetSelectedGameObject(currentSelected);
             return;
         }
 
-        // If something outside the group is selected, force back
+        // If something outside the group is selected (like a dropdown or random UI),
+        // force back to our managed button
         if (es.currentSelectedGameObject != null &&
             !IsManagedButton(es.currentSelectedGameObject) &&
             currentSelected != null)
@@ -55,14 +53,6 @@ public class ButtonGroupManager : MonoBehaviour
         if (buttons.Length > 0)
         {
             SelectButton(buttons[0].gameObject);
-        }
-    }
-
-    public void RestoreCurrent()
-    {
-        if (currentSelected != null)
-        {
-            EventSystem.current.SetSelectedGameObject(currentSelected);
         }
     }
 

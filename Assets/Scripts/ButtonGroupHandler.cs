@@ -7,7 +7,6 @@ public class ButtonGroupHandler : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        if (ButtonGroupManager.DropdownActive) return; // don’t override while dropdown is open
         manager?.SelectButton(gameObject);
     }
 }
