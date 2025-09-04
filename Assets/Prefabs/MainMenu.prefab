@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 7759958143894208869}
   - component: {fileID: 6824809443396652312}
   - component: {fileID: 7600117964434330278}
+  - component: {fileID: 5661704669695088357}
   m_Layer: 5
   m_Name: OptionPanel
   m_TagString: Untagged
@@ -208,6 +209,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!225 &5661704669695088357
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275411165503604809}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2464545008776737296
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3905229902418003985
 RectTransform:
   m_ObjectHideFlags: 0
