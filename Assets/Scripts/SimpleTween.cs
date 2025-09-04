@@ -47,4 +47,20 @@ public static class SimpleTween
 
         canvasGroup.alpha = end;
     }
+
+    public static IEnumerator SlideTo(RectTransform target, Vector2 end, float duration)
+    {
+        Vector2 start = target.anchoredPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            target.anchoredPosition = Vector2.Lerp(start, end, elapsed / duration);
+            yield return null;
+        }
+
+        target.anchoredPosition = end; // snap to final
+    }
+
 }

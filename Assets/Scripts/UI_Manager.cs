@@ -15,6 +15,13 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject[] Panels;
     [SerializeField] private ManualButtonGroup manualButtonGroup;
 
+    [SerializeField] private float slideDistance = 1500f; // how far offscreen to slide
+    [SerializeField] private float slideDuration = 0.5f;
+
+    // Store original positions
+    private Vector2[] originalPositions;
+
+
     public static UI_Manager Instance { get; set; }
 
     // Store original scales
@@ -51,6 +58,15 @@ public class UI_Manager : MonoBehaviour
 
         MainMenu.GetComponent<CanvasGroup>().alpha = 1;
         Settings.GetComponent<CanvasGroup>().alpha = 0;
+
+        // Remember each panel’s original position
+        originalPositions = new Vector2[Panels.Length];
+        for (int i = 0; i < Panels.Length; i++)
+        {
+            RectTransform rt = Panels[i].GetComponent<RectTransform>();
+            if (rt != null) originalPositions[i] = rt.anchoredPosition;
+        }
+
     }
 
     public void GoToMainMenu()
@@ -119,25 +135,36 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-
-
     public void OpenPanel(int ID)
     {
         for (int i = 0; i < Panels.Length; i++)
         {
-            CanvasGroup cg = Panels[i].GetComponent<CanvasGroup>();
-            if (cg == null) continue;
+            RectTransform rt = Panels[i].GetComponent<RectTransform>();
+            if (rt == null) continue;
 
             if (i == ID)
             {
                 Panels[i].SetActive(true);
-                StartCoroutine(SimpleTween.FadeTo(cg, 1f, 0.5f));
+
+                // Start offscreen to the left
+                rt.anchoredPosition = originalPositions[i] + Vector2.left * slideDistance;
+
+                // Slide in
+                StartCoroutine(SimpleTween.SlideTo(rt, originalPositions[i], slideDuration));
             }
-            else
+            else if (Panels[i].activeSelf)
             {
-                StartCoroutine(FadeOutAndDisable(cg, 0.5f));
+                // Slide out to the right, then disable
+                StartCoroutine(SlideOutAndDisable(Panels[i], originalPositions[i] + Vector2.right * slideDistance, slideDuration));
             }
         }
+    }
+
+    private IEnumerator SlideOutAndDisable(GameObject panel, Vector2 targetPos, float duration)
+    {
+        RectTransform rt = panel.GetComponent<RectTransform>();
+        yield return SimpleTween.SlideTo(rt, targetPos, duration);
+        panel.SetActive(false);
     }
 
     private IEnumerator FadeOutAndDisable(CanvasGroup cg, float duration)
