@@ -3455,7 +3455,7 @@ GameObject:
   - component: {fileID: 4222215923193257030}
   - component: {fileID: 5387939970470836332}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6907,7 +6907,7 @@ GameObject:
   - component: {fileID: 8560288356535526692}
   - component: {fileID: 430354087477067572}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7913,7 +7913,7 @@ GameObject:
   - component: {fileID: 2420505025665680899}
   - component: {fileID: 3765079176686194749}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8808,7 +8808,7 @@ GameObject:
   - component: {fileID: 3965696818473276056}
   - component: {fileID: 6831062572014965616}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10413,7 +10413,7 @@ GameObject:
   - component: {fileID: 6487983290986686593}
   - component: {fileID: 8988735372000694535}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12024,7 +12024,7 @@ GameObject:
   - component: {fileID: 1245466160258488969}
   - component: {fileID: 3857730777138813022}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12207,7 +12207,7 @@ GameObject:
   - component: {fileID: 4232402341803207774}
   - component: {fileID: 4013534389035189261}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17025,7 +17025,7 @@ GameObject:
   - component: {fileID: 5804917697855854050}
   - component: {fileID: 3854933412557473441}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

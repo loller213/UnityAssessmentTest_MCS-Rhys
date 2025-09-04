@@ -1697,81 +1697,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661369100}
   m_CullTransparentMesh: 1
---- !u!1 &1714059600
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1714059601}
-  - component: {fileID: 1714059603}
-  - component: {fileID: 1714059602}
-  m_Layer: 5
-  m_Name: BlackPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1714059601
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714059600}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2692611, y: 1.2692611, z: 1.2692611}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5217779242950399499}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1714059602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714059600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1714059603
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714059600}
-  m_CullTransparentMesh: 1
 --- !u!1 &1741528140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3280,7 @@ GameObject:
   - component: {fileID: 7408380798976841689}
   - component: {fileID: 74377796424410522}
   m_Layer: 5
-  m_Name: Master
+  m_Name: Ambient_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6173,7 +6098,7 @@ GameObject:
   - component: {fileID: 4222215924960505108}
   - component: {fileID: 5387939970111555902}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6290,7 +6215,7 @@ GameObject:
   - component: {fileID: 776863244773579758}
   - component: {fileID: 9047862752784661380}
   m_Layer: 5
-  m_Name: Master
+  m_Name: Master_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8945,7 +8870,7 @@ GameObject:
   - component: {fileID: 8560288355099366518}
   - component: {fileID: 430354088037650022}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9533,7 +9458,7 @@ GameObject:
   - component: {fileID: 2420505027034740561}
   - component: {fileID: 3765079177853919599}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10298,8 +10223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 221.5, y: -84}
-  m_SizeDelta: {x: -723.51, y: -321}
+  m_AnchoredPosition: {x: 221.5, y: -83.99999}
+  m_SizeDelta: {x: -1240.5, y: -611.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4046288507034042446
 CanvasRenderer:
@@ -10499,7 +10424,7 @@ GameObject:
   - component: {fileID: 3965696818227258314}
   - component: {fileID: 6831062570040893986}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10783,7 +10708,7 @@ GameObject:
   - component: {fileID: 1235366980311943715}
   - component: {fileID: 5302562180754348290}
   m_Layer: 5
-  m_Name: Master
+  m_Name: SFX_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11842,7 +11767,7 @@ GameObject:
   - component: {fileID: 6487983291814402515}
   - component: {fileID: 8988735371575369813}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12929,7 +12854,6 @@ RectTransform:
   m_LocalScale: {x: 0.78786, y: 0.78786, z: 0.78786}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1714059601}
   - {fileID: 414818017}
   - {fileID: 2139720508836593093}
   - {fileID: 2828315732399409876}
@@ -12943,8 +12867,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00042725, y: -0.000061035}
+  m_SizeDelta: {x: 516.98, y: 290.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5230196373181351061
 CanvasRenderer:
@@ -13424,7 +13348,7 @@ GameObject:
   - component: {fileID: 1381636623745786959}
   - component: {fileID: 1771447556986046416}
   m_Layer: 5
-  m_Name: Master
+  m_Name: BGM_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13954,7 +13878,7 @@ GameObject:
   - component: {fileID: 1245466160348015579}
   - component: {fileID: 3857730775971096844}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14031,7 +13955,7 @@ GameObject:
   - component: {fileID: 4232402340148944140}
   - component: {fileID: 4013534390086530399}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19994,7 +19918,7 @@ GameObject:
   - component: {fileID: 5804917696155460784}
   - component: {fileID: 3854933413071943667}
   m_Layer: 5
-  m_Name: Template
+  m_Name: Dropdown_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
