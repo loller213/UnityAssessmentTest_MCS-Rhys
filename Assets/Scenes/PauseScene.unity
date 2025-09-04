@@ -960,6 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 5171517927216708703}
   Settings: {fileID: 7134126856873290567}
+  PausePanel: {fileID: 1091484301}
   QuitPanel: {fileID: 0}
   Panels:
   - {fileID: 1031938964980296515}
@@ -1509,18 +1510,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 1446883985}
           m_ObjectArgumentAssemblyTypeName: ManualButton, Assembly-CSharp
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 926288374}
-        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12867,7 +12856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00042725, y: -0.000061035}
+  m_AnchoredPosition: {x: -0.0004272461, y: -0.000061035156}
   m_SizeDelta: {x: 516.98, y: 290.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5230196373181351061
@@ -14756,8 +14745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 221.5, y: -84}
-  m_SizeDelta: {x: -723.51, y: -321}
+  m_AnchoredPosition: {x: 229.51, y: -84}
+  m_SizeDelta: {x: -1224.5, y: -611.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6245109619491460321
 GameObject:
@@ -18848,8 +18837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 221.5, y: -84}
-  m_SizeDelta: {x: -723.51, y: -321}
+  m_AnchoredPosition: {x: 221.49, y: -69.784}
+  m_SizeDelta: {x: -1240.5, y: -640.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8464239302372987256
 GameObject:

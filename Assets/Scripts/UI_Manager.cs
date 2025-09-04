@@ -5,7 +5,9 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private GameObject GoToMainMenuPanel;
     [SerializeField] private GameObject QuitPanel;
+
 
     [SerializeField] private GameObject[] Panels;
 
@@ -36,6 +38,11 @@ public class UI_Manager : MonoBehaviour
             QuitPanel.SetActive(false);
         }
 
+        if(GoToMainMenuPanel != null)
+        {
+            GoToMainMenuPanel.SetActive(false);
+        }
+
         MainMenu.GetComponent<CanvasGroup>().alpha = 1;
         Settings.GetComponent<CanvasGroup>().alpha = 0;
     }
@@ -59,9 +66,39 @@ public class UI_Manager : MonoBehaviour
 
     public void AccessQuitPanel(bool state)
     {
-        QuitPanel.SetActive(state);
+        if (state)
+        {
+            QuitPanel.SetActive(true);
+
+            Transform qt = QuitPanel.transform;
+            qt.localScale = Vector3.zero; // start small
+
+            StartCoroutine(SimpleTween.FadeTo(QuitPanel.GetComponent<CanvasGroup>(), 1f, 0.3f));
+            StartCoroutine(SimpleTween.ScaleTo(qt, Vector3.one, 0.3f));
+        }
+        else
+        {
+            StartCoroutine(FadeOutAndDisable(QuitPanel.GetComponent<CanvasGroup>(), 0.3f));
+        }
     }
 
+    public void AccessMainMenuPanel(bool state)
+    {
+        if (state)
+        {
+            GoToMainMenuPanel.SetActive(true);
+
+            Transform pp = GoToMainMenuPanel.transform;
+            pp.localScale = Vector3.zero; // start small
+
+            StartCoroutine(SimpleTween.FadeTo(GoToMainMenuPanel.GetComponent<CanvasGroup>(), 1f, 0.3f));
+            StartCoroutine(SimpleTween.ScaleTo(pp, Vector3.one, 0.3f));
+        }
+        else
+        {
+            StartCoroutine(FadeOutAndDisable(GoToMainMenuPanel.GetComponent<CanvasGroup>(), 0.3f));
+        }
+    }
 
     public void OpenPanel(int ID)
     {
