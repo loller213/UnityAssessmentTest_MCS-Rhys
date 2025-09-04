@@ -63,4 +63,26 @@ public static class SimpleTween
         target.anchoredPosition = end; // snap to final
     }
 
+    public static IEnumerator SlideAndFade(RectTransform target, CanvasGroup cg, Vector2 end, float endAlpha, float duration)
+    {
+        Vector2 startPos = target.anchoredPosition;
+        float startAlpha = cg.alpha;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            target.anchoredPosition = Vector2.Lerp(startPos, end, t);
+            cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
+
+            yield return null;
+        }
+
+        target.anchoredPosition = end;
+        cg.alpha = endAlpha;
+    }
+
+
 }

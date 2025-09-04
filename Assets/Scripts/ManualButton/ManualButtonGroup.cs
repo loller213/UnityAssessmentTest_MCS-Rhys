@@ -15,11 +15,11 @@ public class ManualButtonGroup : MonoBehaviour
     //    StartCoroutine(InitFirstButton());
     //}
 
-    private void OnEnable()
-    {
-        // Start a coroutine so the Animators have time to initialize
-        StartCoroutine(InitFirstButton());
-    }
+    //private void OnEnable()
+    //{
+    //    // Start a coroutine so the Animators have time to initialize
+    //    StartCoroutine(InitFirstButton());
+    //}
 
     private IEnumerator InitFirstButton()
     {
@@ -46,16 +46,27 @@ public class ManualButtonGroup : MonoBehaviour
     {
         if (buttons.Length > 0)
         {
+            // Apply your custom selection
             SelectButton(buttons[0]);
+
+            // Force Unity’s EventSystem to also select it (this makes Animator play "Selected" state)
+            EventSystem.current.SetSelectedGameObject(null); // clear first
+            EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
 
+        // Open the first sub-panel
         UI_Manager.Instance.OpenPanel(0);
-
     }
+
 
     // Optional: get currently selected button
     public ManualButton GetCurrentSelected()
     {
         return currentSelected;
+    }
+    private void OnDisable()
+    {
+        // Clear so ResetToFirst() always works cleanly on next open
+        currentSelected = null;
     }
 }
